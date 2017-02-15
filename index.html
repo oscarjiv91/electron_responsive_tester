@@ -1,13 +1,191 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp">
   <head>
-    <meta charset="UTF-8">
-    <title>Hello World!</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <title>Caliper</title>
+
+      <link rel="stylesheet" href="./assets/css/bootstrap.css">
+      <link rel="stylesheet" href="./assets/css/font-awesome.min.css">
+      <link rel="stylesheet" href="./assets/css/style.css">
   </head>
-  <body>
-    <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+
+  <body onresize="scaleFrames()" ng-controller="deviceController"  ng-init="names=['Igor Minar', 'Brad Green', 'Dave Geddes', 'Naomi Black', 'Greg Weber', 'Dean Sofer', 'Wes Alvaro', 'John Scott', 'Daniel Nadasi'];">
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+
+        <!-- Nav Bar -->
+        <div class="collapse navbar-collapse">
+
+              <!--  Url Form -->
+              <form class="navbar-form navbar-left">
+                <div class="form-group">
+                  <img src="./assets/images/logo_120.png" id="logo"/>
+                  <input type="search" id="url" class="form-control" placeholder="Your URL here" ng-model="stringURL">
+                  <button type="submit" class="btn btn-default" ng-click="convertToTrustUrl(stringURL)">Go!</button>
+                  <button type="submit" class="btn btn-default" ng-click="refresh(globalURL)"><img src="./assets/images/refresh.svg" width="17" /></button>
+                </div>
+              </form>
+
+              <!-- Select Devices -->
+              <ul class="nav navbar-nav navbar-right" style="margin-right: 0px">
+                <!-- Phones -->
+                 <li>
+                   <div class="dropdown">
+                     <button class="btn btn-default navbar-btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                       <span class="fa fa-mobile-phone" style="margin-right:7px"></span>Phones
+                       <span class="caret"></span>
+                     </button>
+                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                       <div id="checkboxes">
+                         <div ng-repeat="device in allDevices | filter: { type: 'phone' }" ng-class="{'last-item': $last}">
+                           <li>
+                             <input type="checkbox" ng-click="toggleDeviceView(device)" id="checkbox_{{device.model}}" ng-model="device.show"/>
+                             <label class="checkbox-device" for="checkbox_{{device.model}}">
+                               <div class="checkbox-device-container">
+                                 <div class "row">
+                                    <div class="col-md-10">
+                                      {{device.name}}
+                                      <p>{{device.width}} x {{device.height}}</p>
+                                    </div>
+                                  <div class="col-md-2">
+                                    <img src="./assets/images/devices/{{device.model}}.svg"> </img>
+                                  </div>
+                                </div>
+                               </div>
+                             </label>
+                           </li>
+                         </div>
+                       </div>
+                     </ul>
+                   </div>
+                 </li>
+
+                 <!-- Tablets -->
+                 <li>
+                   <div class="dropdown">
+                     <button class="btn btn-default navbar-btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                       <span class="fa fa-tablet" style="margin-right:7px"></span>Tablets
+                       <span class="caret"></span>
+                     </button>
+                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                       <div id="checkboxes">
+                         <div ng-repeat="device in allDevices | filter: { type: 'tablet' }" ng-class="{'last-item': $last}">
+                           <li>
+                             <input type="checkbox" ng-click="toggleDeviceView(device)" id="checkbox_{{device.model}}" ng-model="device.show"/>
+                             <label class="checkbox-device" for="checkbox_{{device.model}}">
+                               <div class="checkbox-device-container">
+                                 <div class "row">
+                                    <div class="col-md-10">
+                                      {{device.name}}
+                                      <p>{{device.width}} x {{device.height}}</p>
+                                    </div>
+                                  <div class="col-md-2">
+                                    <img src="./assets/images/devices/{{device.model}}.svg"> </img>
+                                  </div>
+                                </div>
+                               </div>
+                             </label>
+                           </li>
+                         </div>
+                       </div>
+                     </ul>
+                   </div>
+                 </li>
+
+                 <!-- Desktop -->
+                 <!-- <li>
+                   <div class="dropdown">
+                     <button class="btn btn-default navbar-btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                       <span class="fa fa-desktop" style="margin-right:7px"></span>Desktop
+                       <span class="caret"></span>
+                     </button>
+                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                       <div id="checkboxes">
+                         <div ng-repeat="device in allDevices | filter: { type: 'desktop' }" ng-class="{'last-item': $last}">
+                           <li>
+                             <input type="checkbox" ng-click="toggleDeviceView(device)" id="checkbox_{{device.model}}" ng-model="device.show"/>
+                             <label class="checkbox-device" for="checkbox_{{device.model}}">
+                               <div class="checkbox-device-container">
+                                 <div class "row">
+                                    <div class="col-md-10">
+                                      {{device.name}}
+                                      <p>{{device.width}} x {{device.height}}</p>
+                                    </div>
+                                  <div class="col-md-2">
+                                    <img src="./assets/images/devices/{{device.model}}.svg"> </img>
+                                  </div>
+                                </div>
+                               </div>
+                             </label>
+                           </li>
+                         </div>
+                       </div>
+                     </ul>
+                   </div>
+                 </li> -->
+              </ul>
+
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+
+    <!-- Side Bar -->
+    <div id="wrapper">
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+              <div ng-repeat="device in allDevices | filter: { show: true }" ng-class="{'last-item': $last}">
+                  <li>
+                    <a ng-click="scrollToDevice(device.model)">
+                      <div class="list-device-container">
+                        <div class "row">
+                          <div class="col-md-3 col-xs-3">
+                            <img src="./assets/images/devices/{{device.model}}.svg"> </img>
+                          </div>
+                          <div class="col-md-9 col-xs-9">
+                            {{device.name}}
+                            <p>{{device.width}} x {{device.height}}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+              </div>
+            </ul>
+        </div>
+
+        <div id="page-content-wrapper">
+            <div class="page-content">
+              <div class="animation" ng-repeat="device in allDevices | filter: { show: true }" repeat-end="onEnd()">
+                <div device-detail class="card"></div>
+              </div>
+              <p ng-show="!(allDevices | filter: { show: true }).length">It's so empty here. Add a device to start!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include js files -->
+    <script src="./assets/js/angular.min.js"></script>
+    <script src="./assets/js/angular-animate.min.js"></script>
+    <script src="./assets/js/custom_functions.js"></script>
+    <script src="./scripts/deviceController.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="./assets/js/custom_functions.js"></script>
+    <script src="./assets/js/lazysizes.min.js" async=""></script>
+    <script>
+      $( document ).ready(function() {
+        scaleFrames();
+        $('.dropdown-menu').click(function(e) {
+            e.stopPropagation();
+        });
+     });
+
+
+    </script>
+
   </body>
 </html>

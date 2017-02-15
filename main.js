@@ -10,15 +10,46 @@ const BrowserWindow = electron.BrowserWindow;
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
 
+var storage = require("./storage");
+
 function createWindow () {
-  // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600});
+  
+  // Get last state of window
+  var lastWindowState = storage.get("lastWindowState");
+  if (lastWindowState === null) {
+     lastWindowState = {
+        width: 1024,
+        height: 768,
+        maximized: false
+     }
+  }
+
+  mainWindow = new BrowserWindow({
+     x: lastWindowState.x,
+     y: lastWindowState.y,
+     width: lastWindowState.width,
+     height: lastWindowState.height});
+
+  if (lastWindowState.maximized) {
+    mainWindow.maximize();
+  }
 
   // and load the index.html of the app.
   mainWindow.loadURL('file://' + __dirname + '/index.html');
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
+
+  mainWindow.on('close', function () {
+  var bounds = mainWindow.getBounds();
+      storage.set("lastWindowState", {
+         x: bounds.x,
+         y: bounds.y,
+         width: bounds.width,
+         height: bounds.height,
+         maximized: mainWindow.isMaximized()
+      });
+   });
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function() {

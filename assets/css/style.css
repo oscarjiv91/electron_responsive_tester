@@ -1,0 +1,351 @@
+
+body {
+  padding-top: 50px;
+  background-color: #F2F2F2;
+  font-family: "SourceSansPro-Light";
+
+}
+
+nav{
+  min-width: 1150px;
+}
+
+h1{
+  display: inline;
+    font-family: "SourceSansPro-Light";
+}
+
+textarea:focus, .btn:focus ,input:focus, .uneditable-input:focus {
+    border-color: rgba(229, 103, 23, 0.8) !important;
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6) !important;
+    outline: 0 none !important;
+}
+
+.navbar{
+  background-color: #3a3329;
+}
+
+.container > .row{
+  /*height:600px;*/
+}
+.row > div {
+  height:600px;
+  overflow: hidden;
+}
+
+.navbar-form{
+    width: 800px;
+}
+
+.navbar-form .form-group{
+  width: 100%;
+}
+
+.navbar-form .form-control {
+  width: 80%;
+}
+
+.card{
+  margin: 0 auto;
+  background: #FFFFFF;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 30px 30px 50px 30px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 3px #888888;
+  width: 1100px;
+}
+
+.device-container{
+  /*background-color: #fa3232;*/
+  /*padding: 30px 30px 80px 30px;*/
+  height: 100%;
+  width: 450px;
+  margin: 0 auto;
+  position: relative;
+  /*background-image: url("../images/iphone-5.png");*/
+}
+
+.device-container img{
+  position: absolute;
+  height: 90%;
+  width: auto;
+  top:0;
+  left:0;
+  /*transform-origin: top left;*/
+}
+
+.screen-container-portrait{
+  height:100%;
+  width: auto;
+  top:0;
+  left:0;
+  position: absolute;
+}
+
+.screen-container-landscape{
+  height:auto;
+  width: 100%;
+  top:0;
+  left:0;
+  position: absolute;
+}
+
+
+.portrait iframe {
+    zoom: 1.0;
+    -moz-transform:scale(0.5);
+    -moz-transform-origin: 0 0;
+    -o-transform: scale(0.5);
+    -o-transform-origin: 0 0;
+    -webkit-transform: scale(0.5);
+    -webkit-transform-origin: 0 0;
+    margin: 0 auto;
+    display: block;
+    position: absolute;
+
+
+}
+
+.landscape iframe {
+    zoom: 1.0;
+    -moz-transform:scale(0.5);
+    -moz-transform-origin: 0 0;
+    -o-transform: scale(0.5);
+    -o-transform-origin: 0 0;
+    -webkit-transform: scale(0.5);
+    -webkit-transform-origin: 0 0;
+    display: block;
+    position: absolute;
+    margin: 0 auto;
+}
+
+
+#logo{
+  width: auto;
+  height: 35px;
+  margin-right: 10px;
+}
+
+.btn-default, .btn-default:focus{
+  background-color: #565451;
+  border-style: none;
+  color: #FFFFFF;
+}
+
+.btn-danger, .btn-danger:focus{
+  background-color: #EC6060;
+  border-style: none;
+}
+
+.btn-default:hover{
+  background-color: #777470;
+  color: #FFFFFF;
+}
+
+
+#url{
+  padding-left: 30px;
+  background-color: #ffffff;
+  background-image: none;
+  background-size: 20px 20px;
+  background-position:5px center;
+  background-repeat: no-repeat;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.dropdown-toggle{
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.checkbox-device{
+  cursor: pointer;
+    background-image: none;
+    max-width: 400px;
+    min-width: 300px;
+    height: auto;
+    padding: 18px 18px 18px 18px;
+    font-weight: lighter;
+}
+
+.checkbox-container{
+    height: auto;
+}
+
+#checkboxes input[type=checkbox]{
+    display: none;
+}
+
+
+#checkboxes li {
+display: inline-block;
+border-bottom:1px solid #D2D2D2;
+margin: 0 0 0 0
+}
+
+#checkboxes li:hover, label:hover {
+  background-color: #EEEEEE;
+}
+
+#checkboxes li img{
+  height: 50px;
+  width: auto;
+}
+
+#checkboxes .last-item li {
+display: inline-block;
+border-bottom:none;
+}
+
+#checkboxes input[type=checkbox]:checked + .checkbox-device{
+  background-size: 20px 20px;
+  background-position:20px center;
+  background-repeat: no-repeat;
+  background-image: url("../images/check.png");
+}
+
+.checkbox-device-container{
+    color: #EF692E;
+    text-align: right;
+}
+
+.checkbox-device-container p{
+    color: #AAAAAA;
+}
+
+/* Side Bar */
+
+#wrapper {
+  padding-left: 250px;
+  transition: all 0.4s ease 0s;
+}
+
+#sidebar-wrapper {
+  margin-left: -250px;
+  left: 250px;
+  width: 250px;
+  background: #EDEDED;
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 1000;
+  transition: all 0.4s ease 0s;
+  box-shadow: 1px 1px 10px #888888;
+}
+
+.list-device-container{
+  color: #EF692E;
+}
+
+.list-device-container img{
+  height: 60px;
+  width: auto;
+}
+
+.list-device-container p{
+    color: #AAAAAA;
+}
+
+#sidebar-wrapper li {
+  width: 100%;
+  padding: 20px 20px 20px 20px;
+  display: inline-block;
+  border-bottom:1px solid #D2D2D2;
+}
+
+#page-content-wrapper {
+
+  padding-top: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  min-width: 600px;
+}
+
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*@media (max-width:767px) {
+
+    #wrapper {
+      padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+      left: 0;
+    }
+
+    #wrapper.active {
+      position: relative;
+      left: 250px;
+    }
+
+    #wrapper.active #sidebar-wrapper {
+      left: 250px;
+      width: 250px;
+      transition: all 0.4s ease 0s;
+    }
+
+}*/
+
+/* Animations */
+
+
+.animation {
+  -webkit-transition: 0.5s;
+}
+
+.animation.ng-enter {
+  opacity: 0;
+}
+
+.animation.ng-leave {
+  opacity: 1;
+}
+
+.animation.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+
+.animation.ng-leave.ng-leave-active {
+  opacity: 0;
+}
+
+
+/* Second animation */
+
+.animate.ng-enter,
+.animate.ng-leave {
+  -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -o-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  position: relative;
+  display: block;
+}
+
+.animate.ng-leave.ng-leave-active,
+.animate.ng-enter {
+  opacity: 0;
+  top: -650px;
+  height: 0px;
+}
+
+.animate.ng-enter.ng-enter-active,
+.animate.ng-leave {
+  opacity: 1;
+  top: 0;
+  height: 6500px;
+}

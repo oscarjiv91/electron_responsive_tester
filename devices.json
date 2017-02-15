@@ -1,0 +1,64 @@
+{
+
+  "phones":[
+      {
+        "name":"iPhone 4 - 4S",
+         "model":"iphone_4",
+         "width": 320,
+         "height":480,
+         "type": "phone",
+         "top": "0.199",
+         "bottom": "0.2",
+         "right": "0.109",
+         "left": "0.13"
+       },
+      {
+        "name":"iPhone 5 - 5S",
+        "model":"iphone_5",
+        "width": 320,
+        "height":557,
+          "type": "phone",
+          "top": "0.18",
+          "bottom": "0.18",
+          "right": "0.1",
+          "left": "0.1"
+        },
+      {
+        "name":"iPhone 6 - 6S",
+        "model":"iphone_6",
+        "width": 740,
+        "height":1334,
+        "type": "phone",
+        "top": "0.4",
+        "bottom": "0.4",
+        "right": "0.13",
+        "left": "0.13"
+      }
+  ],
+  "tablets":[
+      {
+        "name":"iPad",
+         "model":"ipad_1",
+         "width": 640,
+         "height":960,
+         "type": "tablet"
+       },
+      {
+        "name":"iPhone 5/5S",
+         "model":"ipad_3",
+         "width": 640,
+          "height":1136,
+          "type": "tablet"
+        },
+      {
+        "name":"iPhone 6/6S",
+        "model":"ipad_2",
+        "width": 740,
+        "height":1334,
+        "type": "tablet"
+      }
+  ],
+  "desktop":[
+
+  ]
+}

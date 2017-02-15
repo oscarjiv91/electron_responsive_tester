@@ -1,0 +1,24 @@
+<h1>{{device.name}}
+  <button style="margin-left:20px" class="btn btn-default" ng-click="refreshDevice(device.model)"><img src="./assets/images/refresh.svg" height="17"/></button>
+  <button style="margin-left:20px" class="btn btn-danger pull-right" ng-click="device.show = false"><img src="./assets/images/refresh.svg" height="17"/></button>
+</h1>
+
+<div class="row row-device" id="{{device.model}}">
+  <div class="col-md-5 col-xs-12 col-lg-5" style="overflow-x: auto">
+    <div class="device-container">
+      <!-- <img src="./assets/images/devices/{{device.model}}.svg" id="image_frame_{{device.model}}_portrait"/> -->
+      <div class="screen-container-portrait portrait" >
+        <iframe ng-src="{{globalURL}}"  height="{{device.height}}" width="{{device.width}}" original-height="{{device.height}}" original-width="{{device.width}}" loaded="false" id="frame_{{device.model}}_portrait" top="{{device.top}}" bottom={{device.bottom}} right="{{device.right}}" left="{{device.left}}" frameBorder="0"></iframe>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-md-7 col-xs-12 col-lg-7" style="overflow-x: auto">
+    <div class=device-container>
+      <!-- <img src="./assets/images/devices/{{device.model}}_landscape.svg" id="image_frame_{{device.model}}_landscape" /> -->
+      <div class="screen-container-landscape landscape">
+        <iframe ng-src="{{globalURL}}"  height="{{device.width}}" width="{{device.height}}" original-height="{{device.width}}" original-width="{{device.height}}"  loaded="false" id="frame_{{device.model}}_landscape" top="{{device.top}}" bottom={{device.bottom}} right="{{device.right}}" left="{{device.left}}" frameBorder="0"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
